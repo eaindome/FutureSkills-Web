@@ -58,7 +58,7 @@
     </nav>
   
     <!-- Hero Section -->
-    <div class="container mx-auto px-4 py-12 md:py-20">
+    <div class="container mx-auto px-4 py-12 md:py-20 -mb-32">
       <div class="max-w-5xl mx-auto">
         <div class="text-center mb-12">
           <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 mb-4">
@@ -110,7 +110,7 @@
     <UserInputForm on:formSubmit={handleFormSubmit} />
     
     <!-- Features Section -->
-    <div class="container mx-auto px-4 py-16">
+    <div class="container mx-auto px-4 py-16 -mt-10 -mb-10">
       <div class="max-w-5xl mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <!-- Feature 1 -->

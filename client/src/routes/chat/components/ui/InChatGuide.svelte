@@ -74,13 +74,11 @@
         </div>
         
         <!-- Content -->
-        <div class="min-h-[120px]">
+        <div class="h-[120px] relative">
           {#each steps as step, i}
             {#if i === currentStep}
               <div 
                 class="flex flex-col items-center text-center"
-                in:fade={{ duration: 250 }}
-                out:fade={{ duration: 150 }}
               >
                 <div class="text-3xl mb-2">{step.icon}</div>
                 <h3 class="text-lg font-medium text-teal-800 mb-1.5">{step.title}</h3>

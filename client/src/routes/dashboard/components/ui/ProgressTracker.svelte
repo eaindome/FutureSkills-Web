@@ -39,9 +39,9 @@
             {#if isCompleted}
               <span class="text-xs text-gray-500">Completed</span>
             {:else if i === completedSteps.length}
-              <span class="text-xs font-medium text-blue-500">Current Step</span>
+              <span class="text-xs font-medium text-blue-500">Next Step</span>
             {:else}
-              <span class="text-xs text-gray-500">Coming Soon</span>
+              <span class="text-xs text-gray-500">Final Step</span>
             {/if}
           </div>
         </div>

@@ -60,9 +60,6 @@
           <span>Resources</span>
           <span class="absolute bottom-0 left-0 w-0 h-0.5 bg-amber-300 rounded-full transition-all duration-300 group-hover:w-full"></span>
         </a>
-        <button class="bg-amber-500 hover:bg-amber-600 text-white font-medium px-5 py-2 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
-          Get Started
-        </button>
       </nav>
       
       <!-- Mobile menu button with animation -->
@@ -128,7 +125,7 @@
   {/if}
   
   <!-- Notification banner -->
-  {#if showNotification}
+  <!-- {#if showNotification}
     <div 
       class="bg-blue-50 p-2 border-b border-blue-100"
       transition:fly={{ y: -20, duration: 300 }}
@@ -151,5 +148,5 @@
         </button>
       </div>
     </div>
-  {/if}
+  {/if} -->
 </header>
