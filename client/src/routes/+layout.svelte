@@ -1,10 +1,9 @@
 <script lang="ts">
-	import Navbar from '../lib/components/layout/Navbar.svelte';
 	import '../app.css';
   </script>
   
   <div class="min-h-screen flex flex-col bg-white">
-	<Navbar />
+	
 	<main class="flex-grow">
 	  <slot />
 	</main>

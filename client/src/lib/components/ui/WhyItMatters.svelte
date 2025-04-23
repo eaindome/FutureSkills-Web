@@ -106,7 +106,7 @@
         we're building a more inclusive and resilient workforce for the future green economy.
       </p>
       
-      <a href="#sdg8" class="group inline-flex items-center px-6 py-3 text-lg font-medium rounded-lg bg-amber-500 text-white hover:bg-amber-600 transition-all shadow-lg hover:shadow-xl">
+      <a href="https://www.globalgoals.org/goals/8-decent-work-and-economic-growth/" target="_blank" class="group inline-flex items-center px-6 py-3 text-lg font-medium rounded-lg bg-amber-500 text-white hover:bg-amber-600 transition-all shadow-lg hover:shadow-xl">
         <span>Learn more about SDG 8</span>
         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" viewBox="0 0 20 20" fill="currentColor">
           <path fill-rule="evenodd" d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
