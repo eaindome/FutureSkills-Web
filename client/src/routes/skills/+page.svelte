@@ -10,8 +10,8 @@
       name: "Alex Johnson",
       currentJob: "Retail Cashier",
       riskScore: 75,
-      completedSteps: ["profile", "assessment"],
-      nextSteps: ["reskilling", "mentoring"]
+      completedSteps: ["profile", "assessment","reskilling"],
+      nextSteps: ["mentoring"]
     };
     
     const reskillingOptions = [
@@ -212,15 +212,6 @@
                                 <p class="text-teal-700">Focus on developing <span class="font-medium">Sustainable Product Knowledge</span> and <span class="font-medium">Solar Technology Basics</span> to qualify for the recommended green jobs.</p>
                                 
                                 <div class="mt-4 flex flex-wrap gap-2">
-                                    <button class="px-4 py-2 bg-teal-600 hover:bg-teal-700 text-white rounded-lg text-sm font-medium transition-colors flex items-center gap-1">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-                                            <circle cx="9" cy="7" r="4"></circle>
-                                            <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-                                            <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                                        </svg>
-                                        Find Mentors
-                                    </button>
                                     <button class="px-4 py-2 bg-sky-600 hover:bg-sky-700 text-white rounded-lg text-sm font-medium transition-colors flex items-center gap-1">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                             <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
@@ -348,6 +339,18 @@
                                         </div>
                                     </div>
                                 </div>
+                                
+                                <!-- Step 4 -->
+                                <div class="flex items-start relative">
+                                  <div class="absolute left-4 top-0 w-4 h-4 rounded-full bg-gray-400 border-4 border-gray-100 z-10"></div>
+                                  <div class="pl-16">
+                                      <div class="bg-gray-50 p-4 rounded-lg border border-gray-200 relative">
+                                          <span class="absolute -left-2 top-4 transform -translate-y-1/2 w-4 h-4 bg-gray-50 border-l border-t border-gray-200 rotate-45"></span>
+                                          <h4 class="font-medium text-gray-700">Get Certified</h4>
+                                          <p class="text-gray-600 text-sm mt-1">Obtain "Green Certification" (2-day workshop + exam)</p>
+                                      </div>
+                                  </div>
+                              </div>
                             </div>
                         </div>
                     </div>

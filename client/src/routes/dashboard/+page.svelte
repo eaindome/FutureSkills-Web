@@ -111,6 +111,12 @@
       icon: "clock"
     }
   ];
+
+  // Function to get the Udemy search URL for the recommended job
+  function getUdemySearchUrl(jobTitle: string) {
+    const searchQuery = encodeURIComponent(jobTitle.toLowerCase());
+    return `https://www.udemy.com/courses/search/?q=${searchQuery}`;
+  }
   
   // Button interaction
   let isRefreshing = false;
@@ -284,7 +290,7 @@
                 </a>
               </li>
               <li>
-                <a href="/resources/skills-assessment" class="flex items-center text-blue-600 hover:text-blue-800 group p-2 rounded-md hover:bg-blue-50 transition-all duration-200">
+                <a href="/input" class="flex items-center text-blue-600 hover:text-blue-800 group p-2 rounded-md hover:bg-blue-50 transition-all duration-200">
                   <div class="bg-blue-100 rounded-full p-1 mr-2 group-hover:bg-blue-200 transition-colors">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
@@ -294,7 +300,7 @@
                 </a>
               </li>
               <li>
-                <a href="/resources/training-courses" class="flex items-center text-blue-600 hover:text-blue-800 group p-2 rounded-md hover:bg-blue-50 transition-all duration-200">
+                <a href={getUdemySearchUrl(greenJobs[0].title)} target="_blank" rel="noopener noreferrer" class="flex items-center text-blue-600 hover:text-blue-800 group p-2 rounded-md hover:bg-blue-50 transition-all duration-200">
                   <div class="bg-blue-100 rounded-full p-1 mr-2 group-hover:bg-blue-200 transition-colors">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-blue-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />

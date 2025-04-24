@@ -116,7 +116,7 @@
     </div>
     
     <!-- Action button -->
-    <div class="mt-6">
+    <!-- <div class="mt-6">
       <button 
         class="w-full py-3 px-4 bg-teal-600 hover:bg-teal-700 text-white rounded-lg font-medium transition-all duration-200 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-teal-300 focus:ring-opacity-50 flex items-center justify-center gap-2"
         on:mouseenter={() => isHovered = true}
@@ -140,7 +140,7 @@
         </svg>
         Explore Green Job Alternatives
       </button>
-    </div>
+    </div> -->
     
     <!-- Resource Links -->
     <div class="mt-4 flex justify-between text-sm">
@@ -152,13 +152,13 @@
         </svg>
         Learn how risk is calculated
       </a>
-      <a href="/trends" class="text-green-600 hover:text-green-700 transition-colors hover:underline flex items-center gap-1">
+      <!-- <a href="/trends" class="text-green-600 hover:text-green-700 transition-colors hover:underline flex items-center gap-1">
         Job market trends
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <line x1="5" y1="12" x2="19" y2="12"></line>
           <polyline points="12 5 19 12 12 19"></polyline>
         </svg>
-      </a>
+      </a> -->
     </div>
   </div>
 </div>
