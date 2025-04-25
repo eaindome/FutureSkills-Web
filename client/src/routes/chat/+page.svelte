@@ -2,7 +2,7 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import { fade, fly, slide } from 'svelte/transition';
-  import ChatHeader from './components/layout/ChatHeader.svelte';
+  import Navbar from '$lib/components/layouts/Navbar.svelte';
   import ChatMessage from './components/ui/ChatMessage.svelte';
   import SuggestedPrompts from './components/ui/SuggestedPrompts.svelte';
   import ChatInput from './components/ui/ChatInput.svelte';
@@ -183,7 +183,7 @@
 </svelte:head>
 
 <div class="flex flex-col h-screen bg-gray-50">
-  <ChatHeader />
+  <Navbar isLoggedIn={true}/>
   
   <main class="flex-1 flex flex-col overflow-hidden">
     <!-- Chat container -->

@@ -1,5 +1,6 @@
 <script lang="ts">
     import { goto } from '$app/navigation';
+    import Navbar from '$lib/components/layouts/Navbar.svelte';
     import UserInputForm from '$lib/components/ui/UserInputForm.svelte';
     import { fade } from 'svelte/transition';
     
@@ -38,24 +39,7 @@
   </script>
   
   <div class="min-h-screen bg-gradient-to-br from-green-50 to-blue-50" in:fade={{ duration: 300 }}>
-    <!-- Navigation Bar -->
-    <nav class="bg-white shadow-sm">
-      <div class="container mx-auto px-4">
-        <div class="flex justify-between items-center py-4">
-          <div class="flex items-center">
-            <div class="w-10 h-10 rounded-full bg-gradient-to-r from-green-600 to-teal-500 flex items-center justify-center text-white font-bold mr-3">
-              FS
-            </div>
-            <span class="text-xl font-semibold text-gray-800">FutureSkills Coach</span>
-          </div>
-          <div>
-            <a href="/about" class="text-gray-600 hover:text-green-600 mx-3 hidden md:inline-block">About</a>
-            <a href="/resources" class="text-gray-600 hover:text-green-600 mx-3 hidden md:inline-block">Resources</a>
-            <a href="/contact" class="bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-lg transition-colors ml-3">Contact</a>
-          </div>
-        </div>
-      </div>
-    </nav>
+    <Navbar isLoggedIn={true}/>
   
     <!-- Hero Section -->
     <div class="container mx-auto px-4 py-12 md:py-20 -mb-32">

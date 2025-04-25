@@ -1,4 +1,5 @@
 <script lang="ts">
+    import Navbar from '$lib/components/layouts/Navbar.svelte';
     import SkillsRadarChart from '../dashboard/components/charts/SkillsRadarChart.svelte';
     import ReskillingCard from '../dashboard/components/cards/ReskillingCard.svelte';
     import SideHustleCard from '../dashboard/components/cards/SideHustleCard.svelte';
@@ -118,7 +119,7 @@
 </script>
 
 <div class="min-h-screen bg-gray-50">
-    <DashboardHeader userName={userData.name} />
+    <Navbar isLoggedIn={true}/>
 
     <main class="container mx-auto px-4 py-6 max-w-7xl">
         <!-- Page Header -->

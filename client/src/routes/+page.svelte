@@ -1,5 +1,6 @@
 <script lang="ts">
-    import Navbar from '../lib/components/layout/Navbar.svelte';
+    // import Navbar from '../lib/components/layout/Navbar.svelte';
+    import Navbar from '../lib/components/layouts/Navbar.svelte';
     import Hero from '$lib/components/ui/Hero.svelte';
     import HowItWorks from '$lib/components/ui/HowItWorks.svelte';
     import WhyItMatters from '$lib/components/ui/WhyItMatters.svelte';
@@ -13,7 +14,7 @@
 </svelte:head>
   
 <main class="min-h-screen">
-    <Navbar />
+    <Navbar isLoggedIn={false} />
     <Hero />
     <HowItWorks />
     <WhyItMatters />

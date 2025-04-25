@@ -2,4 +2,13 @@
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
 
+:root {
+    --navbar-height: 4rem; /* 80px when not scrolled */
+}
+  
+@media (min-width: 768px) {
+    :root {
+        --navbar-height: 2rem; /* 64px when scrolled */
+    }
+}
 

@@ -1,8 +1,8 @@
 <script lang="ts">
+  import Navbar from '$lib/components/layouts/Navbar.svelte';
   import RiskCard from './components/cards/RiskCard.svelte';
   import JobCard from './components/cards/JobCard.svelte';
   import ProgressTracker from './components/ui/ProgressTracker.svelte';
-  import DashboardHeader from './components/layout/DashboardHeader.svelte';
   import JobTrendsChart from './components/charts/JobTrendsChart.svelte';
   import JobComparisonChart from './components/charts/JobComparisonChart.svelte';
   
@@ -133,7 +133,7 @@
 </script>
 
 <div class="min-h-screen bg-gray-50">
-  <DashboardHeader userName={userData.name} />
+  <Navbar isLoggedIn={true}/>
   
   <main class="container mx-auto px-4 py-6 max-w-7xl">
     <!-- Dashboard Header -->

@@ -16,9 +16,9 @@
   };
  </script>
  
- <section class="bg-gradient-to-br from-green-50 via-teal-50 to-blue-50 py-24 px-4 sm:px-6 lg:px-8 overflow-hidden relative">
+ <section class="bg-gradient-to-br from-green-50 via-teal-50 to-blue-50 pt-8 pb-24 px-4 sm:px-6 lg:px-8 overflow-hidden relative -mt-[calc(var(--navbar-height))]">
    <!-- Background decorative elements -->
-   <div class="absolute inset-0 overflow-hidden">
+   <div class="absolute inset-0 overflow-hidden -mt-[calc(var(--navbar-height))] pt-[calc(var(--navbar-height))]">
      <div class="absolute -top-24 -right-24 w-96 h-96 bg-green-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
      <div class="absolute top-1/2 -left-24 w-96 h-96 bg-blue-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-4000"></div>
      <div class="absolute -bottom-32 right-1/4 w-96 h-96 bg-amber-100 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob animation-delay-2000"></div>
@@ -56,7 +56,7 @@
                on:click={scrollToDemo}
                class="px-8 py-4 rounded-xl bg-gradient-to-r from-green-600 to-teal-500 text-white font-medium hover:from-green-700 hover:to-teal-600 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 duration-300 flex items-center justify-center"
              >
-               <span>Try the Demo</span>
+               <span>See It in Action</span>
                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2" viewBox="0 0 20 20" fill="currentColor">
                  <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
                </svg>
