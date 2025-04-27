@@ -175,14 +175,15 @@
               </a>
             {/each}
             
-            <button 
+            <a 
+              href="/signin"
               class={`ml-4 py-2 px-5 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5 font-medium
               ${scrolled 
                 ? 'bg-gradient-to-r from-green-600 to-teal-500 hover:from-green-700 hover:to-teal-600 text-white' 
                 : 'bg-amber-500 hover:bg-amber-600 text-white'}`}
             >
               Get Started
-            </button>
+            </a>
           {/if}
         </div>
         

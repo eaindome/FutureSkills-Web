@@ -453,7 +453,7 @@
 
 			<div class="mt-12 text-center" in:fade={{ duration: 600, delay: 1000 }}>
 				<a
-					href="/input"
+					href="/signin"
 					class="inline-flex transform items-center rounded-lg border border-transparent bg-gradient-to-r from-green-600 to-teal-600 px-6 py-3 text-lg font-medium text-white shadow-md transition-all hover:scale-105 hover:from-green-700 hover:to-teal-700 focus:ring-2 focus:ring-green-500 focus:ring-offset-2 focus:outline-none"
 				>
 					Get Started
