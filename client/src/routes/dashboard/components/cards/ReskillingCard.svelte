@@ -1,4 +1,8 @@
 <script lang="ts">
+    import Button from '$lib/components/ui/Button.svelte';
+
+    let loading: boolean = false;
+
     export let option: {
       title: string;
       provider: string;
@@ -35,7 +39,7 @@
       </ul>
     </div>
     
-    <a href={option.url} class="mt-4 block bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-md text-center transition-colors">
+    <Button type="submit" variant="primary" fullWidth={true} loading={loading}>
       View Course Details
-    </a>
+    </Button>
 </div>

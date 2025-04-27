@@ -8,6 +8,7 @@
   let experience = '';
   let interests = '';
   let resumeText = '';
+  let location = '';
   let uploadedFile: File | null = null;
   let isLoading = false;
   let activeTab = 'basic'; // 'basic' or 'advanced'
@@ -28,7 +29,7 @@
   }
   
   function handleSubmit() {
-    if (!jobTitle || !experience) {
+    if (!jobTitle || !experience || !location) {
       return;
     }
     
@@ -38,6 +39,7 @@
       dispatch('formSubmit', {
         jobTitle,
         experience,
+        location, // Add location to the form data
         interests,
         resumeText,
         uploadedFile
@@ -146,6 +148,26 @@
                   </select>
                   <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
                   </div>
+                </div>
+              </div>
+
+              <!-- Location -->
+              <div class="mb-6">
+                <label for="location" class="block text-sm font-medium text-gray-700 mb-1">Your Location <span class="text-green-600">*</span></label>
+                <div class="relative">
+                  <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                      <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd" />
+                    </svg>
+                  </div>
+                  <input 
+                    type="text" 
+                    id="location" 
+                    bind:value={location} 
+                    class="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-green-500 transition-colors" 
+                    placeholder="E.g., New York, NY or Chicago, IL"
+                    required
+                  />
                 </div>
               </div>
               

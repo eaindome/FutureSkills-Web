@@ -1,11 +1,24 @@
 <script lang="ts">
+    import Button from '$lib/components/ui/Button.svelte';
     export let hustle: {
       title: string;
       potentialIncome: number;
       startupCost: number;
       timeCommitment: string;
       skillsUsed: string;
+      greenImpactScore: number;
     };
+
+
+    function getGreenColor(score: number): string {
+      if (score >= 80) return '#10B981'; // Green-600
+      if (score >= 60) return '#34D399'; // Green-400
+      if (score >= 40) return '#FBBF24'; // Amber-400
+      if (score >= 20) return '#F59E0B'; // Amber-500
+      return '#EF4444'; // Red-500
+    }
+
+    let loading: boolean = false;
 </script>
   
 <div class="bg-white rounded-lg shadow-md border border-gray-200 p-5" aria-label="Side Hustle: {hustle.title}">
@@ -43,9 +56,29 @@
           <p class="text-sm text-gray-700">Skills Used: <span class="font-medium">{hustle.skillsUsed}</span></p>
         </div>
       </div>
+
+      <div class="flex items-center mb-4">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500 mr-2 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+        </svg>
+        <div class="flex-1">
+          <div class="flex items-center">
+            <span class="text-sm text-gray-700 mr-2">Green Impact:</span>
+            <div class="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden">
+              <div 
+                class="h-full rounded-full" 
+                style="width: {hustle.greenImpactScore}%; background-color: {getGreenColor(hustle.greenImpactScore)}">
+              </div>
+            </div>
+            <span class="ml-2 text-sm font-semibold" style="color: {getGreenColor(hustle.greenImpactScore)}">
+              {hustle.greenImpactScore}
+            </span>
+          </div>
+        </div>
+      </div>
     </div>
-    
-    <button class="w-full bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded-md text-center transition-colors">
+
+    <Button type="submit" variant="secondary" fullWidth={true} loading={loading}>
       Learn More
-    </button>
+    </Button>
 </div>

@@ -3,8 +3,8 @@
     import SkillsRadarChart from '../dashboard/components/charts/SkillsRadarChart.svelte';
     import ReskillingCard from '../dashboard/components/cards/ReskillingCard.svelte';
     import SideHustleCard from '../dashboard/components/cards/SideHustleCard.svelte';
+    import GigCard from '../dashboard/components/cards/GigCard.svelte';
     import ProgressTracker from '../dashboard/components/ui/ProgressTracker.svelte';
-    import DashboardHeader from '../dashboard/components/layout/DashboardHeader.svelte';
     
     // Mock data - in a real app this would come from API or store
     const userData = {
@@ -48,21 +48,24 @@
         potentialIncome: 200,
         startupCost: 50,
         timeCommitment: "5-10 hours/week",
-        skillsUsed: "Creativity, customer service, basic crafting"
+        skillsUsed: "Creativity, customer service, basic crafting",
+        greenImpactScore: 95,
       },
       {
         title: "Sustainability Blogger",
         potentialIncome: 150,
         startupCost: 0,
         timeCommitment: "3-5 hours/week",
-        skillsUsed: "Writing, social media, basic web skills"
+        skillsUsed: "Writing, social media, basic web skills",
+        greenImpactScore: 85,
       },
       {
         title: "Used Item Reseller",
         potentialIncome: 250,
         startupCost: 100,
         timeCommitment: "8-12 hours/week",
-        skillsUsed: "Photography, negotiation, inventory management"
+        skillsUsed: "Photography, negotiation, inventory management",
+        greenImpactScore: 80,
       }
     ];
     
@@ -95,25 +98,31 @@
       }
     }
     
-    // Current learning items for the timeline
-    const learningPath = [
+    // Green Gigs data
+    const greenGigs = [
       {
-        title: "Green Retail Basics",
-        progress: 75,
-        status: "In Progress",
-        dueDate: "May 10, 2025"
+        title: "Bike Courier - Eco Delivery",
+        hourlyRate: 18,
+        location: "Urban Areas",
+        timeCommitment: "Flexible, 4-20 hours/week",
+        skillsRequired: "Cycling, navigation, time management",
+        greenImpactScore: 90,
       },
       {
-        title: "Solar Energy Fundamentals",
-        progress: 25,
-        status: "In Progress",
-        dueDate: "June 15, 2025"
+        title: "Community Garden Assistant",
+        hourlyRate: 15,
+        location: "Local",
+        timeCommitment: "Weekends, 5-10 hours/week",
+        skillsRequired: "Basic gardening, teamwork, physical stamina",
+        greenImpactScore: 95,
       },
       {
-        title: "Sustainable Inventory",
-        progress: 0,
-        status: "Not Started",
-        dueDate: "July 1, 2025"
+        title: "Solar Panel Cleaner",
+        hourlyRate: 22,
+        location: "Suburban/Rural",
+        timeCommitment: "Seasonal, 10-15 hours/week",
+        skillsRequired: "Equipment handling, attention to detail, safety awareness",
+        greenImpactScore: 85,
       }
     ];
 </script>
@@ -362,42 +371,66 @@
                 </div>
 
                 <!-- Bottom Sections -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <!-- Recommended Courses -->
-                    <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden h-full">
-                        <div class="px-4 py-3 border-b border-gray-200 bg-gray-50 flex items-center justify-between">
-                            <h2 class="text-lg font-medium text-gray-700">Recommended Courses</h2>
-                            <button class="text-green-600 text-sm font-medium hover:text-green-700 flex items-center">
-                                View All
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="p-4 space-y-4">
-                            {#each reskillingOptions as option}
-                                <ReskillingCard {option} />
-                            {/each}
-                        </div>
-                    </div>
-                    
-                    <!-- Side Hustles -->
-                    <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden h-full">
-                        <div class="px-4 py-3 border-b border-gray-200 bg-gray-50 flex items-center justify-between">
-                            <h2 class="text-lg font-medium text-gray-700">Side Hustle Ideas</h2>
-                            <button class="text-green-600 text-sm font-medium hover:text-green-700 flex items-center">
-                                View All
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
-                                    <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
-                                </svg>
-                            </button>
-                        </div>
-                        <div class="p-4 space-y-4">
-                            {#each sideHustles as hustle}
-                                <SideHustleCard {hustle} />
-                            {/each}
-                        </div>
-                    </div>
+                <div class="space-y-6">
+                  <!-- Top row: 2 columns side by side -->
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <!-- Recommended Courses -->
+                      <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden h-full">
+                          <div class="px-4 py-3 border-b border-gray-200 bg-gray-50 flex items-center justify-between">
+                              <h2 class="text-lg font-medium text-gray-700">Recommended Courses</h2>
+                              <button class="text-green-600 text-sm font-medium hover:text-green-700 flex items-center">
+                                  View All
+                                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                                      <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                                  </svg>
+                              </button>
+                          </div>
+                          <div class="p-4 space-y-4">
+                              {#each reskillingOptions as option}
+                                  <ReskillingCard {option} />
+                              {/each}
+                          </div>
+                      </div>
+                      
+                      <!-- Side Hustles -->
+                      <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden h-full">
+                          <div class="px-4 py-3 border-b border-gray-200 bg-gray-50 flex items-center justify-between">
+                              <h2 class="text-lg font-medium text-gray-700">Side Hustle Ideas</h2>
+                              <button class="text-green-600 text-sm font-medium hover:text-green-700 flex items-center">
+                                  View All
+                                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                                      <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                                  </svg>
+                              </button>
+                          </div>
+                          <div class="p-4 space-y-4">
+                              {#each sideHustles as hustle}
+                                  <SideHustleCard {hustle} />
+                              {/each}
+                          </div>
+                      </div>
+                  </div>
+
+                  <!-- Bottom row: Full width -->
+                  <div>
+                      <!-- Gigs -->
+                      <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden h-full">
+                          <div class="px-4 py-3 border-b border-gray-200 bg-gray-50 flex items-center justify-between">
+                              <h2 class="text-lg font-medium text-gray-700">Gig Opportunities</h2>
+                              <button class="text-green-600 text-sm font-medium hover:text-green-700 flex items-center">
+                                  View All
+                                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-1" viewBox="0 0 20 20" fill="currentColor">
+                                      <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                                  </svg>
+                              </button>
+                          </div>
+                          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 p-4 space-y-4">
+                              {#each greenGigs as gig}
+                                  <GigCard {gig} />
+                              {/each}
+                          </div>
+                      </div>
+                  </div>
                 </div>
             </div>
 

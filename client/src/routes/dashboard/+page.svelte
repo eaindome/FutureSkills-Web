@@ -25,14 +25,16 @@
       growthRate: 15,
       skillMatch: "Uses your customer service and sales skills",
       description: "Assist customers with solar panel purchases and installation plans",
-      salary: "$45,000 - $60,000"
+      salary: "$45,000 - $60,000",
+      greenImpactScore: 75
     },
     {
       title: "Eco-Retail Coordinator",
       growthRate: 12,
       skillMatch: "Uses your inventory and management experience",
       description: "Manage sustainable product lines and green initiatives in retail stores",
-      salary: "$42,000 - $55,000"
+      salary: "$42,000 - $55,000",
+      greenImpactScore: 75
     }
   ];
   
@@ -78,38 +80,6 @@
     { name: "Solar Sales Support", sustainability: 85, futureProof: 80, salary: 60 },
     { name: "Eco-Retail Coordinator", sustainability: 75, futureProof: 70, salary: 55 },
     { name: "Traditional Retail Manager", sustainability: 35, futureProof: 40, salary: 65 }
-  ];
-  
-  // Dashboard summary cards
-  const summaryCards = [
-    {
-      title: "Your Risk Level",
-      value: `${userData.riskScore}%`,
-      description: "Automation Risk",
-      trend: "increasing",
-      icon: "alert-triangle"
-    },
-    {
-      title: "Green Jobs Match",
-      value: "73%",
-      description: "Skill Compatibility",
-      trend: "neutral",
-      icon: "briefcase"
-    },
-    {
-      title: "Earning Potential",
-      value: "$55K",
-      description: "After Transition",
-      trend: "increasing",
-      icon: "trending-up"
-    },
-    {
-      title: "Training Time",
-      value: "12 wks",
-      description: "Avg. Reskilling Time",
-      trend: "decreasing",
-      icon: "clock"
-    }
   ];
 
   // Function to get the Udemy search URL for the recommended job
@@ -219,25 +189,8 @@
           <div class="p-6">
             <p class="text-gray-600 mb-4">Based on your skills and interests, these sustainable careers have the highest match potential.</p>
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {#each greenJobs as job, i}
-                <div 
-                  class="border border-gray-200 rounded-lg p-4 hover:border-green-400 transition-all duration-200 hover:shadow-md {hoveredJobCard === i ? 'bg-green-50 border-green-400' : ''}"
-                  role="button"
-                  tabindex="0"
-                  on:mouseenter={() => hoveredJobCard = i}
-                  on:mouseleave={() => hoveredJobCard = null}
-                >
-                  <div class="flex justify-between items-start mb-2">
-                    <h3 class="text-lg font-semibold text-gray-800">{job.title}</h3>
-                    <span class="bg-green-100 text-green-700 px-2 py-1 rounded-full text-xs font-medium">+{job.growthRate}% Growth</span>
-                  </div>
-                  <p class="text-sm text-green-600 mb-2">{job.skillMatch}</p>
-                  <p class="text-gray-600 text-sm mb-2">{job.description}</p>
-                  <p class="text-gray-700 font-medium">{job.salary}</p>
-                  <button class="mt-3 w-full bg-green-600 hover:bg-green-700 text-white font-medium py-2 px-4 rounded transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-green-300 focus:ring-opacity-50">
-                    View Job Details
-                  </button>
-                </div>
+              {#each greenJobs as job}
+                <JobCard {job} />
               {/each}
             </div>
             <div class="mt-6 flex justify-center">
