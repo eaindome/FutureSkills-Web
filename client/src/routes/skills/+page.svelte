@@ -118,6 +118,10 @@
     ];
 </script>
 
+<svelte:head>
+  <title>Skills - FutureSkills Coach</title>
+</svelte:head>
+
 <div class="min-h-screen bg-gray-50">
     <Navbar isLoggedIn={true}/>
 
@@ -212,7 +216,7 @@
                                 <h4 class="font-semibold text-teal-800 mb-1">Skill Development Recommendation</h4>
                                 <p class="text-teal-700">Focus on developing <span class="font-medium">Sustainable Product Knowledge</span> and <span class="font-medium">Solar Technology Basics</span> to qualify for the recommended green jobs.</p>
                                 
-                                <div class="mt-4 flex flex-wrap gap-2">
+                                <!-- <div class="mt-4 flex flex-wrap gap-2">
                                     <button class="px-4 py-2 bg-sky-600 hover:bg-sky-700 text-white rounded-lg text-sm font-medium transition-colors flex items-center gap-1">
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                             <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
@@ -220,7 +224,7 @@
                                         </svg>
                                         Explore Courses
                                     </button>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>

@@ -56,7 +56,7 @@
 	}
 
 	// Auto-advance demo (can be toggled off)
-	let autoAdvance = true;
+	let autoAdvance = false;
 	let timer: ReturnType<typeof setInterval> | undefined = undefined;
 
 	function startAutoAdvance() {

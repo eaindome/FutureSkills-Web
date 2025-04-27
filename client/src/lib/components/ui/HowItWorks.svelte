@@ -9,11 +9,7 @@
 		visible = true;
 
 		// Auto-rotate features every 4 seconds
-		const interval = setInterval(() => {
-			activeFeature = (activeFeature + 1) % features.length;
-		}, 10000);
-
-		return () => clearInterval(interval);
+		// const in 
 	});
 
 	const features: Array<{
@@ -65,6 +61,7 @@
 	// Pre-define static class mappings for colors to avoid dynamic class generation issues
 	const colorClasses = {
 		blue: {
+			bgColor: '#3b82f6', 
 			tab: 'bg-blue-500 text-white shadow-md',
 			iconBg: 'bg-blue-50',
 			iconGradient: 'bg-gradient-to-br from-blue-500 to-blue-600',
@@ -75,6 +72,7 @@
 			button: 'bg-blue-500 hover:bg-blue-600'
 		},
 		green: {
+			bgColor: '#22c55e',
 			tab: 'bg-green-500 text-white shadow-md',
 			iconBg: 'bg-green-50',
 			iconGradient: 'bg-gradient-to-br from-green-500 to-green-600',
@@ -85,6 +83,7 @@
 			button: 'bg-green-500 hover:bg-green-600'
 		},
 		amber: {
+			bgColor: '#f59e0b',
 			tab: 'bg-amber-500 text-white shadow-md',
 			iconBg: 'bg-amber-50',
 			iconGradient: 'bg-gradient-to-br from-amber-500 to-amber-600',
@@ -128,22 +127,43 @@
 		<!-- Features with animated tabs -->
 		<div class="mb-16">
 			{#if visible}
-				<div class="mb-6 flex justify-center" in:fly={{ y: 20, duration: 600, delay: 200 }}>
-					<div class="inline-flex rounded-xl bg-gray-100 p-1">
-						{#each features as feature, i}
-							<button
-								on:click={() => setActive(i)}
-								class={`rounded-lg px-6 py-3 font-medium transition-all duration-300 ${
-									activeFeature === i
-										? colorClasses[feature.color].tab
-										: 'text-gray-600 hover:bg-gray-200 hover:text-gray-800'
-								}`}
-							>
-								{feature.title}
-							</button>
-						{/each}
+				<div class="mb-8 flex justify-center" in:fly={{ y: 20, duration: 600, delay: 200 }} out:fly={{ y: -20, duration: 300 }}>
+					<div class="relative inline-flex rounded-xl bg-gray-100 p-1.5 shadow-inner overflow-hidden">
+					<!-- Animated background indicator -->
+					<div
+						class="absolute top-1.5 bottom-1.5 transition-all duration-400 ease-in-out rounded-lg shadow-md"
+						style={`
+						width: ${100 / features.length - 2}%;
+						left: calc(${activeFeature * (100 / features.length)}% + 0.375rem);
+						background: ${colorClasses[features[activeFeature].color].bgColor};
+						transform: translateX(0);
+						`}
+					></div>
+					
+					{#each features as feature, i}
+						<button
+						on:click={() => setActive(i)}
+						class={`relative rounded-lg px-6 py-3 font-medium z-10 transition-all duration-300 flex items-center justify-center ${
+							activeFeature === i
+							? 'text-white'
+							: 'text-gray-600 hover:text-gray-800'
+						}`}
+						style={`width: ${100 / features.length}%;`}
+						>
+						
+						<!-- Text with subtle transition -->
+						<span class="transition-all duration-300 transform ${
+							activeFeature === i ? 'scale-105' : 'scale-100'
+						}">{feature.title}</span>
+						
+						<!-- Optional: Add subtle indicator dot for active state -->
+						{#if activeFeature === i}
+							<span class="absolute -bottom-0.5 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-white rounded-full"></span>
+						{/if}
+						</button>
+					{/each}
 					</div>
-				</div>
+			  </div>
 
 				<!-- Feature showcase -->
 				<div class="mx-auto max-w-4xl overflow-hidden rounded-2xl bg-white shadow-xl">
@@ -330,24 +350,32 @@
 									</ul>
 
 									<div class="mt-6">
-										<button
-											class={`rounded-lg px-5 py-2 ${colorClasses[feature.color].button} flex items-center gap-2 text-white transition-colors`}
+										<a 
+										  href="/about"
+										  class={`
+											group inline-flex items-center gap-2 rounded-lg px-5 py-2.5
+											${colorClasses[feature.color].button} text-white
+											shadow-md hover:shadow-lg
+											transform transition-all duration-300 hover:-translate-y-1
+											focus:outline-none focus:ring-2 focus:ring-offset-2 ${colorClasses[feature.color].bgColor || 'focus:ring-opacity-50'}
+										  `}
 										>
-											<span>Learn more</span>
-											<svg
-												xmlns="http://www.w3.org/2000/svg"
-												class="h-4 w-4"
-												viewBox="0 0 20 20"
-												fill="currentColor"
-											>
-												<path
-													fill-rule="evenodd"
-													d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
-													clip-rule="evenodd"
-												/>
-											</svg>
-										</button>
-									</div>
+										  <span class="font-medium">Learn more</span>
+										  <svg
+											xmlns="http://www.w3.org/2000/svg"
+											class="h-4 w-4 transform transition-transform duration-300 group-hover:translate-x-1"
+											viewBox="0 0 20 20"
+											fill="currentColor"
+											aria-hidden="true"
+										  >
+											<path
+											  fill-rule="evenodd"
+											  d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+											  clip-rule="evenodd"
+											/>
+										  </svg>
+										</a>
+									  </div>
 								</div>
 							</div>
 						{/if}
@@ -424,7 +452,7 @@
 		</div>
 
 		<!-- CTA -->
-		{#if visible}
+		<!-- {#if visible}
 			<div class="mt-16 text-center" in:fly={{ y: 20, duration: 600, delay: 1000 }}>
 				<a
 					href="#mini-demo"
@@ -445,7 +473,7 @@
 					</svg>
 				</a>
 			</div>
-		{/if}
+		{/if} -->
 	</div>
 </section>
 

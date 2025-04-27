@@ -54,9 +54,35 @@
   
   <div class="max-w-7xl mx-auto relative">
     <!-- SDG 8 Badge -->
-    <div class="absolute top-0 right-0 -mt-10 mr-6 hidden lg:block">
-      <div class="bg-amber-500 rounded-full w-20 h-20 flex items-center justify-center shadow-lg">
-        <span class="text-white font-bold text-2xl">SDG 8</span>
+    <div class="absolute top-0 right-0 -mt-10 mr-6 hidden lg:block z-10">
+      <div class="relative group">
+        <!-- Pulsing background effect -->
+        <div class="absolute inset-0 bg-[#a21942] opacity-30 rounded-full animate-ping scale-110 duration-100"></div>
+        
+        <!-- Shadow ring for depth -->
+        <div class="absolute inset-0 bg-[#a21942] opacity-20 rounded-full scale-115 blur-sm"></div>
+        
+        <!-- Main badge -->
+        <div class="bg-[#a21942] rounded-full w-32 h-32 flex flex-col items-center justify-center shadow-lg transform transition-all duration-300 hover:scale-105 relative p-2">
+          <!-- Image on top -->
+          <img 
+            src="/sdg8sml.png" 
+            alt="SDG 8 Symbol" 
+            class="h-16 w-16 object-contain mb-1"
+          />
+          
+          <!-- Text below the image -->
+          <span class="text-white font-bold text-sm">SDG 8</span>
+        </div>
+        
+        <!-- Hover tooltip that appears when hovering -->
+        <div class="absolute top-full mt-2 right-0 transition-all duration-300 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 pointer-events-none">
+          <div class="bg-white text-[#a21942] px-3 py-2 rounded-lg shadow-md text-sm whitespace-nowrap font-medium">
+            Decent Work and Economic Growth
+          </div>
+          <!-- Tooltip arrow -->
+          <div class="absolute -top-1 right-8 w-2 h-2 bg-white transform rotate-45"></div>
+        </div>
       </div>
     </div>
     

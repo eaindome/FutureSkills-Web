@@ -132,6 +132,10 @@
   let hoveredJobCard: number | null = null;
 </script>
 
+<svelte:head>
+  <title>Dashboard - FutureSkills Coach</title>
+</svelte:head>
+
 <div class="min-h-screen bg-gray-50">
   <Navbar isLoggedIn={true}/>
   
