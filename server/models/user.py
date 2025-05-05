@@ -2,29 +2,30 @@
 import uuid
 from typing import Optional
 from uuid import UUID
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, EmailStr
 
-# Model for storing user data internally (mock DB)
+
+# Model for storing user data internally (mock DB) - UPDATED
 class UserDB(BaseModel):
     id: UUID = Field(default_factory=uuid.uuid4)
-    jobTitle: str
-    experience: Optional[str] = None
-    interests: Optional[str] = None
-    resumeText: Optional[str] = None
-    # Add createdAt timestamp here in a real DB model
+    email: Optional[EmailStr] = Field(None) # Made optional
+    hashed_password: Optional[str] = Field(None) # Made optional
+    full_name: Optional[str] = Field(None) # Made optional
+    jobTitle: Optional[str] = Field(None) # Remains optional
+    experience: Optional[str] = Field(None) # Remains optional
+    interests: Optional[str] = Field(None) # Remains optional
+    resumeText: Optional[str] = Field(None) # Remains optional
 
-# Model for API Request (POST /profile)
 class UserProfileRequest(BaseModel):
-    jobTitle: str = Field(..., min_length=1, description="User's current job title")
+    id: Optional[UUID] = Field(None, description="User ID")
+    jobTitle: Optional[str] = Field(None, min_length=1, description="User's current job title")
     experience: Optional[str] = Field(None, description="User's work experience range")
     interests: Optional[str] = Field(None, description="Comma-separated user interests")
     resumeText: Optional[str] = Field(None, description="User's pasted resume text")
 
-# Model for API Response (POST /profile)
 class UserProfileResponse(BaseModel):
     userId: UUID
     message: str
 
-# Model for Error Responses
 class ErrorResponse(BaseModel):
     error: str
